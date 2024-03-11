@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { useDataContext } from '@/app/context/AppProvider';
 import { Pagination } from '@/app/components/Pagination';

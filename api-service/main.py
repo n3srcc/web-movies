@@ -14,7 +14,6 @@ app.add_middleware(
 @app.get("/api/movies/popular")
 def get_popular_movies(page: int = 1):
     try:
-        print(page)
         response = make_tmdb_request("movie/popular", params={"page": page})
         return response
     except Exception as e:

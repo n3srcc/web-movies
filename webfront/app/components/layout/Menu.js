@@ -6,7 +6,7 @@ export default function Menu({ searchTerm, setSearchTerm }) {
 
     const handleClick = () => {
         setSearchTerm('');
-        router.push('/');
+        router.push('/#');
     };
 
     return (

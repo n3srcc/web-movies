@@ -28,17 +28,19 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    if (data.length == 0 && router.pathname.indexOf('movie') == -1) {
+      asyncFetchPopularMovies();
+    }
+
     if ((router.pathname == '/') && searchTerm != '') {
       asyncFetchSearchMovies();
-    } else {
-      asyncFetchPopularMovies();
     }
 
     if ((router.pathname.indexOf('movie') || router.pathname == '/') && searchTerm != '') {
       setData([]);
 
       if (data.length === 0) {
-        router.push('/#');
+        router.push('/');
       }
     }
 
