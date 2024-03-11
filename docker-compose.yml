@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   backend:
@@ -9,6 +9,7 @@ services:
       - "8000:8000"
     environment:
       - TMDB_API_KEY=$TMDB_API_KEY
+    restart: always
 
   frontend:
     container_name: nextjs_app
@@ -18,7 +19,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=development
       - TMDB_API_KEY=$TMDB_API_KEY
     depends_on:
       - backend
+    restart: always

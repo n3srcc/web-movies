@@ -4,6 +4,10 @@
  - Node 18+
  - Python 3.7+
 
+## Stack
+- NextJS 14
+- FastApi 0.110.0
+
 # Setup
 - How to Obtain the API Key:
 Register at https://www.themoviedb.org/settings/api to obtain the API Read Access Token.
@@ -15,34 +19,34 @@ Register at https://www.themoviedb.org/settings/api to obtain the API Read Acces
   ```
     NEXT_PUBLIC_API_URL=http://localhost:8000
   ```
-  ## api-service
+  ### api-service
   Backend service at port 8000
   - api-service/.env
   ```
     TMDB_API_KEY=
   ```
 ## Run locally (Without Docker)
- - api-service
+ ### api-service
   ```
     cd api-service
     pip install -r api/service/requirements.txt
     uvicorn main:app --reload
   ```
-  - web-front
+  ###  web-front
   ```
     cd webfront && npm install
     npm run dev
   ```
 ## Run locally with Docker (Recommended)
-- startup application
+### startup application
   ```
   make run
   ```
-- stop application
+### stop application
   ```
   make stop
   ```
-- for cleanup
+### cleanup
   ```
   make clean
   ```

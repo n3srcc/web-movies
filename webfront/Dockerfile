@@ -1,8 +1,12 @@
-FROM node:alpine as BUILD_IMAGE
+FROM node:18-alpine
 WORKDIR /app
 COPY package*.json ./
-RUN yarn install
-
+RUN npm install next
+RUN npm ci
 COPY . .
-RUN yarn build
-CMD ["yarn", "start"]
+EXPOSE 3000
+
+ENV NODE_ENV production
+
+USER node
+CMD ["npm", "start"]
