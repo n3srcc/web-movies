@@ -141,7 +141,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 .dmypy.json
-dmypy.json
+dmypy.json  
 
 # Pyre type checker
 .pyre/
@@ -161,7 +161,7 @@ cython_debug/
 
 
 # dependencies
-/node_modules
+*/node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -170,7 +170,7 @@ cython_debug/
 /coverage
 
 # next.js
-/.next/
+*/.next/
 /out/
 
 # production
@@ -194,3 +194,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
