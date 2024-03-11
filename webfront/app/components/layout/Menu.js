@@ -8,23 +8,27 @@ export default function Menu({ searchTerm, setSearchTerm }) {
         setSearchTerm('');
         router.push('/');
     };
+
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-slate-950 p-6">
-            <div className="flex items-center flex-shrink-0 text-white mr-6">
-                <span className="font-semibold text-xl tracking-tight">WEB MOVIES</span>
+        <nav className="flex flex-col md:flex-row items-center justify-between bg-slate-950 p-6">
+            <div className="flex items-center">
+                <span className="font-semibold text-xl tracking-tight text-white">WEB MOVIES</span>
+
             </div>
-            <div className="lg:w-auto text-sm flex-grow lg:flex lg:items-center justify-center lg:justify-end">
-                <button onClick={handleClick} className="block mt-4 lg:inline-block lg:mt-0 text-slate-300 hover:text-white mr-10">
+            <div className="mr-10 ml-5 mb-2 mt-2">
+                <button onClick={handleClick} className="md:inline-block text-slate-300 hover:text-white ml-4">
                     Top movies
                 </button>
+            </div>
+            <div className="flex-auto mt-4 md:mt-0">
                 <input
                     type="text"
-                    placeholder="search movie..."
+                    placeholder="Search movie..."
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded"
+                    className="w-full p-2 border border-gray-300 rounded mr-2 md:mr-0"
                 />
-            </div>
+                </div>
         </nav>
     );
 }

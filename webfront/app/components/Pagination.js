@@ -14,13 +14,6 @@ export function Pagination({ totalItems, currentPage, paginate }) {
   return (
     <nav className="flex justify-center mt-4">
       <button
-        onClick={() => paginate(1)}
-        disabled={currentPage === 1}
-        className="mx-1 px-3 py-1 bg-gray-200 rounded text-gray-800"
-      >
-        First
-      </button>
-      <button
         onClick={() => paginate(currentPage - 1)}
         disabled={!showPrevButton}
         className="mx-1 px-3 py-1 bg-gray-200 rounded text-gray-800"
@@ -45,13 +38,6 @@ export function Pagination({ totalItems, currentPage, paginate }) {
         className="mx-1 px-3 py-1 bg-gray-200 rounded text-gray-800"
       >
         Next
-      </button>
-      <button
-        onClick={() => paginate(totalPages)}
-        disabled={currentPage === totalPages}
-        className="mx-1 px-3 py-1 bg-gray-200 rounded text-gray-800"
-      >
-        Last
       </button>
     </nav>
   );

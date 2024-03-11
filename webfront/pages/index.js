@@ -27,7 +27,7 @@ const HomePage = () => {
                 <img
                   src={`https://image.tmdb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
                   alt={movie.title}
-                  className="w-full h-auto max-h-120"
+                  className="w-full max-h-120"
                 />
               </Link>
               <div className="mt-2">

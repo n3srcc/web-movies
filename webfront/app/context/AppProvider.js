@@ -15,26 +15,31 @@ export const AppProvider = ({ children }) => {
   const [totalResults, setTotalResults] = useState();
 
   const router = useRouter();
+  const asyncFetchSearchMovies = async () => {
+    const jsonData = await fetchSearchMovies(currentPage, searchTerm);
+    setData(jsonData.results);
+    setTotalResults(jsonData.total_results);
+  };
+
+  const asyncFetchPopularMovies = async () => {
+    const jsonData = await fetchPopularMovies(currentPage);
+    setData(jsonData.results);
+    setTotalResults(jsonData.total_results);
+  };
 
   useEffect(() => {
-    const asyncFetchSearchMovies = async () => {
-      const jsonData = await fetchSearchMovies(currentPage, searchTerm);
-      setData(jsonData.results);
-      setTotalResults(jsonData.total_results);
-    };
-
-    const asyncFetchPopularMovies = async () => {
-      const jsonData = await fetchPopularMovies(currentPage);
-      setData(jsonData.results);
-      setTotalResults(jsonData.total_results);
-    };
-
-    if ((router.pathname == '/' || router.pathname.indexOf('movie')) && searchTerm != '') {
+    if ((router.pathname == '/') && searchTerm != '') {
       asyncFetchSearchMovies();
+    } else {
+      asyncFetchPopularMovies();
     }
 
-    if (router.pathname == '/') {
-      asyncFetchPopularMovies();
+    if ((router.pathname.indexOf('movie') || router.pathname == '/') && searchTerm != '') {
+      setData([]);
+
+      if (data.length === 0) {
+        router.push('/#');
+      }
     }
 
   }, [currentPage, searchTerm, router.pathname]);
